@@ -1,4 +1,11 @@
-@import url('https://fonts.googleapis.com/css2?family=Source+Sans+Pro:wght@300;400&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Abril+Fatface&family=Source+Sans+Pro:wght@200;300&display=swap');
+
+@import 'home';
+
+:root {
+    --color-primary-base: #e4b131;
+    --color-secondary-base: #6ae431;
+}
 
 * {
     margin: 0;
@@ -6,10 +13,45 @@
     box-sizing: border-box;
 }
 
-input, button, textarea {
+html {
+    scroll-behavior: smooth;
+}
+
+.title {
+    font-family: 'Abril Fatface', serif;
+}
+
+h1 {
+    font-size: 2.5rem;
+}
+
+h2 {
+    font-size: 2rem;
+}
+
+input,
+button,
+textarea,
+.btn {
     font-family: inherit;
     font-size: inherit;
     padding: 10px;
+}
+
+.color-primary {
+    color: var(--color-primary-base);
+}
+
+img {
+    position: relative;
+    width: 100%;
+    height: auto;
+    border-radius: inherit;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
 }
 
 textarea {
@@ -22,25 +64,159 @@ li {
 
 body {
     font-family: 'Source Sans Pro', sans-serif;
-    font-weight: 300;
+    font-weight: 200;
     font-size: 16px;
-    background-color: #ffffff;
+    letter-spacing: .5px;
+    color: #f3f3f3;
+    background-color: #0e0d0d;
+}
+
+input,
+textarea {
+    background-color: #141313;
+    border: none;
+    color: inherit;
+}
+
+.btn,
+button {
+    display: inline-block;
+    text-transform: uppercase;
+    background-color: #c7c7c7;
+    border-radius: 4px;
+    padding: 10px 20px;
+    font-size: .9rem;
 }
 
 .page-layout {
-    width : 100%;
+    position: relative;
+    width: 100%;
     min-height: 100vh;
-    padding: 1rem;
+
 }
 
 .form-control {
     display: block;
     margin: 1rem 0;
-    label, input, textarea {
+
+    label,
+    input,
+    textarea {
         display: block;
     }
 
-    input, textarea {
-        width : 100%;
+    input,
+    textarea {
+        width: 100%;
+    }
+}
+
+.search {
+    position: relative;
+    width: 100%;
+
+    input {
+        width: inherit;
+    }
+}
+
+.menu {
+    position: relative;
+    width: 100%;
+    height: 50px;
+    text-transform: uppercase;
+
+    ul {
+
+        width: 100%;
+        height: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: flex-end;
+    }
+
+    li {
+        margin-right: 2rem;
+        color: var(--color-primary-base);
+    }
+}
+
+.card {
+    position: relative;
+    width : 300px;
+    height: auto;
+    padding: 1rem;
+    background-color:#141313;
+}
+
+
+.card-body {
+    padding: 1rem 0;
+}
+
+.container {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    margin: 0 auto;
+    padding: 1rem;
+}
+
+.articles-list {
+    .search {
+        margin: 2rem 0;
+    }
+}
+
+.article-items {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap : 1rem;
+}
+
+.article-item {
+    @extend .card;
+    display: grid;
+    grid : 200px auto / 1fr;
+    background-color:  #161616;
+}
+
+.article-figure {
+    background-size: cover;
+    background-position: bottom;
+    background-color: #0e0b0b9d;
+    background-blend-mode: soft-light;
+}
+
+.article-detail {
+    width: 80%;
+    margin: 0 auto;
+    
+}
+
+.article-header {
+    height: 300px;
+    background-attachment: fixed;
+    background-size: cover;
+    background-position: bottom;
+    background-color: #161616b9;
+    background-blend-mode: soft-light;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--color-secondary-base);
+    @extend .title;
+}
+
+.article-content {
+    padding: 3rem 2rem;
+    background-color: #141313;
+
+    h1 {
+        margin: 2rem 0;
+    }
+    p{
+        margin: 1rem 0;
     }
 }

@@ -2,7 +2,7 @@ import React, { useEffect } from 'react'
 import Head from 'next/head'
 import Menu from './Menu'
 
-function PageLayout({ className = '', children }) {
+function PageLayout({ className = '', withMenu = true, children }) {
 
     return (
         <>
@@ -10,7 +10,7 @@ function PageLayout({ className = '', children }) {
                 <title>Oenophile</title>
             </Head>
             <div className={`page-layout ${className}`}>
-                <Menu />
+                {withMenu && <Menu />}
                 <main>
                     {children}
                 </main>

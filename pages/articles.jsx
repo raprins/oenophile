@@ -17,29 +17,37 @@ export default function articles({ articles = [] }) {
 
     const handleChangeSearch = e => setSearchTerm(e.target.value)
     return (
-        <PageLayout>
-
-            <h1>Articles</h1>
-            <div>
-                <form onSubmit={handleSearchArticles}>
-                    <input placeholder="Rechercher des articles" 
+        <PageLayout className="articles-list">
+            <div className="container">
+                <form className="search" onSubmit={handleSearchArticles}>
+                    <input placeholder="Rechercher des articles"
                         value={searchTerm}
                         onChange={handleChangeSearch}
-                        />
+                    />
                 </form>
+                <ul className="article-items">
+                    {data.map(article => <ArticleItem key={article.id} article={article} />)}
+                </ul>
             </div>
-            {data.map(article => <ArticleItem key={article.id} article={article} />)}
         </PageLayout>
     )
 }
 
 function ArticleItem({ article }) {
-    const { title, id } = article
+    const { title, id, image, description } = article
     return (
-        <div>
-            <h2>{title}</h2>
+        <li className="article-item card">
+            <div className="article-figure" style={{
+                backgroundImage: `url(${image})`
+            }}>
+
+            </div>
+            <div className="card-body">
+                <h3>{title}</h3>
+                <p>{description}</p>
+            </div>
             <Link href={`/articles/${id}`}><a>See Story</a></Link>
-        </div>
+        </li>
     )
 }
 

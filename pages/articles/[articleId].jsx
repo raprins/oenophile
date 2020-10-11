@@ -3,12 +3,19 @@ import ReactMarkdown from 'react-markdown'
 import PageLayout from '../../components/PageLayout'
 
 export default function Article({ article }) {
+
+    const { header, content } = article
+
     return (
-        <PageLayout>
-            <header>
-                <h1>{article.header.title}</h1>
-            </header>
-            <ReactMarkdown source={article.content} />
+        <PageLayout >
+            <div className="article-detail" >
+                <header className="article-header" style={{
+                    backgroundImage: `url(${header.image})`
+                }}>
+                    <h1>{header.title}</h1>
+                </header>
+                <ReactMarkdown className="article-content" source={content} />
+            </div>
         </PageLayout>
     )
 }

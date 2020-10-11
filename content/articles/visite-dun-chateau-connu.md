@@ -5,9 +5,10 @@ description: >-
   L’œnologie est la science qui a pour objet l'étude et la connaissance du vin.
   Ses domaines d'applications vont de la culture de la vigne à l'élaboration du
   vin, son élevage et son conditionnement.
-image: /img/jamsimage.jpg
+image: /img/table-de-vin.jpg
 tags:
   - Vin;autre;dede
+  - autre chose
 ---
 # C'est quoi ce truc
 
