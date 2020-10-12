@@ -1,5 +1,6 @@
 import Link from 'next/link'
 import React, { useState } from 'react'
+import Card from '../components/Card'
 import PageLayout from '../components/PageLayout'
 
 export default function articles({ articles = [] }) {
@@ -19,12 +20,14 @@ export default function articles({ articles = [] }) {
     return (
         <PageLayout className="articles-list">
             <div className="container">
-                <form className="search" onSubmit={handleSearchArticles}>
-                    <input placeholder="Rechercher des articles"
-                        value={searchTerm}
-                        onChange={handleChangeSearch}
-                    />
-                </form>
+                <div className="search-bar">
+                    <form className="search" onSubmit={handleSearchArticles}>
+                        <input placeholder="Rechercher des articles"
+                            value={searchTerm}
+                            onChange={handleChangeSearch}
+                        />
+                    </form>
+                </div>
                 <ul className="cards">
                     {data.map(article => <ArticleItem key={article.id} article={article} />)}
                 </ul>
@@ -35,19 +38,19 @@ export default function articles({ articles = [] }) {
 
 function ArticleItem({ article }) {
     const { title, id, image, description } = article
+    const links = [{
+        href: `/articles/${id}`,
+        text: 'Voir',
+        style : 'btn primary'
+    }]
     return (
-        <li className="article-item card">
-            <div className="article-figure" style={{
-                backgroundImage: `url(${image})`
-            }}>
+        <Card imageUrl={image}
+            title={title}
+            body={description}
+            links={links}
+        >
 
-            </div>
-            <div className="card-body">
-                <h3 className="color-primary">{title}</h3>
-                <p>{description}</p>
-            </div>
-            <Link href={`/articles/${id}`}><a>See Story</a></Link>
-        </li>
+        </Card>
     )
 }
 

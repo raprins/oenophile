@@ -1,89 +1,65 @@
 .home {
     section {
-        position: relative;
         min-height: 100vh;
-        width: 100%;
-    }
-}
-
-.home-menu {
-    background-color: var(--bg-color-light);
-    opacity: 0;
-    z-index: 100;
-
-    &.active {
-        opacity: 1;
     }
 }
 
 .home-introduction {
-    width: 100%;
-    height: 100vh;
+    position: relative;
+    background-image: url('https://c.wallhere.com/photos/fd/f0/wine_drink_grapes-45123.jpg!d');
     background-attachment: fixed;
-    background-image: url('https://c.wallhere.com/photos/2a/f8/5038x3214_px_drink_grapes_Wine-544812.jpg!d');
-    background-position: bottom;
-    background-size: cover;
-    background-color: #000000af;
+    background-position: right bottom;
+    background-color: #00000065;
     background-blend-mode: soft-light;
-    color: #fff;
+    background-size: 100%;
+    background-repeat: no-repeat;
+
+    padding: 1rem;
+    font-size: 20px;
 
     display: flex;
     align-items: center;
     justify-content: center;
+}
 
-
-
-    .intro-content {
-        position: relative;
-        width: 100%;
-        height: auto;
-        padding: 2rem;
-        text-align: center;
-        font-size: 24px;
+.intro-content {
+    h1, p {
+        margin-bottom: 2rem;
     }
 
     .btn {
         margin-right: 1rem;
     }
 
-    h1 {
-        
-        margin-bottom: 2rem;
-        font-size: 4rem;
-        
-    }
+}
 
-    p {
-        margin-bottom: 1rem;
-    }
+.home-menu {
 
-    footer {
-        opacity: 0;
-        
+    opacity: 0;
+    pointer-events: none;
+
+    &.active {
+        opacity: 1;
+        pointer-events: initial;
     }
 }
 
-
-.more {
-    padding: 3rem 2rem;
-    display: flex;
-
-    .card {
-        margin-right: 1rem;
-
-        h2 {}
-    }
-}
 
 @media screen and (min-width : 640px) {
     .home-introduction {
-        .intro-content {
-            position: absolute;
-            margin: 0 auto;
-            left: 50%;
-            width: 70%;
-            bottom: 10%;
-            transform: translateX(-50%);
-        }
+        background-image: url('https://c.wallhere.com/photos/fc/4d/wine_grapes_barrel-633188.jpg!d');
+    background-attachment: fixed;
+    background-position: top;
+        background-size: cover;
+    }
+
+    .intro-content {
+        position: absolute;
+        left: 50%;
+        bottom: 10%;
+        width: 50%;
+        transform : translateX(-50%);
+        padding: 2rem 3rem;
+        background-color: #00000054;
     }
 }

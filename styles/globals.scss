@@ -4,10 +4,10 @@
 
 :root {
     --color-primary-base: #e4b131;
-    --color-secondary-base: #6ae431;
+    --color-secondary-base: #39b339;
     --bg-color-base: #0e0d0d;
-    --bg-color-light : #1b1919;
-    --bg-color-light-2 : #242121;
+    --bg-color-light: #1b1919;
+    --bg-color-light-2: #242121;
 }
 
 * {
@@ -31,6 +31,7 @@ h1 {
 h2 {
     font-size: 2rem;
 }
+
 h3 {
     font-size: 1.75rem;
 }
@@ -88,7 +89,7 @@ textarea {
     color: inherit;
     outline: none;
     letter-spacing: 1px;
-    transition : background .3s ease-in-out;
+    transition: background .3s ease-in-out;
 
     &:focus {
         background-color: var(--bg-color-light-2);
@@ -165,8 +166,8 @@ svg {
 
 .menu {
     position: sticky;
-    top : 0;
-    left : 0;
+    top: 0;
+    left: 0;
     width: 100%;
     height: 50px;
     text-transform: uppercase;
@@ -178,6 +179,7 @@ svg {
     z-index: 100;
 
     background-color: var(--bg-color-base);
+
     ul {
 
         width: 100%;
@@ -196,21 +198,50 @@ svg {
 .cards {
     position: relative;
     display: grid;
-    grid : auto / repeat(auto-fill, minmax(300px, 1fr));
-    gap : 1rem;
+    grid: auto / repeat(auto-fill, minmax(300px, 1fr));
+    gap: 1rem;
+    padding: 1rem;
+}
+
+.container .cards {
+    padding: 1rem 0;
 }
 
 .card {
     position: relative;
-    width : 300px;
     height: auto;
     padding: 1rem;
-    background-color:var(--bg-color-light);
+    background-color: var(--bg-color-light);
 }
 
+.card-image {
+    position: relative;
+    height: 200px;
+    background-position: center bottom;
+    background-size: cover;
+}
 
 .card-body {
-    padding: 1rem 0;
+    padding: 2rem 0;
+    width: 100%;
+    height: 200px;
+
+    h3 {
+        line-height: 1.75rem;
+        margin-bottom: 1rem;
+    }
+
+    &.overflow-hidden {
+        overflow: hidden;
+        text-overflow: ellipsis;
+    }
+
+}
+
+.card-links {
+    margin-top: 1rem;
+    display: flex;
+    justify-content: flex-end;
 }
 
 .container {
@@ -220,23 +251,24 @@ svg {
     margin: 0 auto;
     padding: 1rem;
 
-    
+
 }
 
 .articles-list {
-    .search {
+    .search-bar {
         position: sticky;
-        top: 60px;
-        margin: 2rem 0;
+        top: 49px;
+        padding: 1rem 0;
         z-index: 100;
+        background-color: #0e0d0d;
     }
 }
 
 .article-item {
     @extend .card;
     display: grid;
-    grid : 200px auto / 1fr;
-    background-color:  #161616;
+    grid: 200px auto / 1fr;
+    background-color: #161616;
 }
 
 .article-figure {
@@ -255,14 +287,15 @@ svg {
     background-attachment: fixed;
     background-size: cover;
     background-position: bottom;
-    background-color: #161616b9;
+    background-color: #161616da;
     background-blend-mode: soft-light;
 
     display: flex;
     align-items: center;
     justify-content: center;
-    color: var(--color-secondary-base);
+    text-align: center;
     @extend .title;
+    color : #cac8c8;
 }
 
 .article-content {
@@ -270,10 +303,40 @@ svg {
     background-color: #141313;
 
     h1 {
+        color: var(--color-primary-base);
+        @extend .title;
         margin: 2rem 0;
     }
-    p{
+
+    p {
         margin: 1rem 0;
+    }
+}
+
+.article-others {
+    display: grid;
+    gap : 2rem;
+    padding: 2rem 0;
+    grid-template-columns: repeat(2, 1fr);
+
+    li {
+        padding: 2rem;
+        background-color: var(--bg-color-light);
+    }
+
+    h4{
+        margin-bottom: 1rem;
+    }
+
+    .btn {
+        margin-top: 1rem;
+        background-color: var(--color-secondary-base);
+    }
+    .next {
+
+        .btn {
+            float: right;
+        }
     }
 }
 

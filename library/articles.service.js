@@ -33,6 +33,11 @@ export const findArticleHeader = (search) => {
 }
 
 
+export const readArticleHeaderById = (id) => {
+    
+}
+
+
 export const readArticleById = (id) => {
     const content = fs.readFileSync(path.resolve(DIRECTORY, `${id}.md`))
     const formatted = matter(content)
@@ -45,5 +50,9 @@ export const readArticleById = (id) => {
         },
         content: formatted.content
     }
+}
+
+
+export const getPreviousArticle = (id) => {
 
 }

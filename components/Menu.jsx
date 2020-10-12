@@ -9,9 +9,9 @@ const Menu = forwardRef(({className = ''}, ref) => {
                 <Icons.Logo />
             </div>
             <ul>
-                <li><Link href="/"><a>Home</a></Link> </li>
-                <li><Link href="/articles"><a>Articles</a></Link> </li>
-                <li><Link href="/contact"><a>Contact</a></Link> </li>
+                <li><Link href="/"><a className="color-primary">Home</a></Link> </li>
+                <li><Link href="/articles"><a className="color-primary">Articles</a></Link> </li>
+                <li><Link href="/contact"><a className="color-primary">Contact</a></Link> </li>
             </ul>
         </header>
     )

@@ -15,7 +15,20 @@ export default function Article({ article }) {
                     <h1>{header.title}</h1>
                 </header>
                 <ReactMarkdown className="article-content" source={content} />
+                <ul className="article-others">
+                    <li className="previous">
+                        <h4>Article précédent</h4>
+                        <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Iure, ducimus nobis optio corrupti cupiditate assumenda, ea placeat hic necessitatibus debitis numquam quasi facere accusantium fuga, dolorem expedita! Ullam, fuga quibusdam.</p>
+                        <a className="btn">Voir</a>
+                    </li>
+                    <li className="next">
+                        <h4>Prochain article</h4>
+                        <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Iure, ducimus nobis optio corrupti cupiditate assumenda, ea placeat hic necessitatibus debitis numquam quasi facere accusantium fuga, dolorem expedita! Ullam, fuga quibusdam.</p>
+                        <a className="btn">Voir</a>
+                    </li>
+                </ul>
             </div>
+
         </PageLayout>
     )
 }
@@ -26,7 +39,13 @@ export async function getStaticProps(context) {
     const articleFull = service.readArticleById(articleId)
     return {
         props: {
-            article: articleFull
+            article: articleFull,
+            previous: {
+                title: 'Previous Article',
+            },
+            next: {
+                title: 'Next Article',
+            }
         }
     }
 }
