@@ -1,9 +1,13 @@
-import React from 'react'
+import React, {forwardRef} from 'react'
 import Link from 'next/link'
+import Icons from './Icons'
 
-export default function Menu() {
+const Menu = forwardRef(({className = ''}, ref) => {
     return (
-        <header className="menu">
+        <header className={`menu ${className}`} ref={ref}>
+            <div>
+                <Icons.Logo />
+            </div>
             <ul>
                 <li><Link href="/"><a>Home</a></Link> </li>
                 <li><Link href="/articles"><a>Articles</a></Link> </li>
@@ -11,4 +15,6 @@ export default function Menu() {
             </ul>
         </header>
     )
-}
+})
+
+export default Menu

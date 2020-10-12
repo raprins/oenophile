@@ -25,7 +25,7 @@ export default function articles({ articles = [] }) {
                         onChange={handleChangeSearch}
                     />
                 </form>
-                <ul className="article-items">
+                <ul className="cards">
                     {data.map(article => <ArticleItem key={article.id} article={article} />)}
                 </ul>
             </div>
@@ -43,7 +43,7 @@ function ArticleItem({ article }) {
 
             </div>
             <div className="card-body">
-                <h3>{title}</h3>
+                <h3 className="color-primary">{title}</h3>
                 <p>{description}</p>
             </div>
             <Link href={`/articles/${id}`}><a>See Story</a></Link>

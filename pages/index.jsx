@@ -1,19 +1,46 @@
 import Link from 'next/link'
+import { useEffect, useRef } from 'react'
+import Menu from '../components/Menu'
 import PageLayout from '../components/PageLayout'
 
 export default function Home() {
+
+  const menu = useRef()
+
+  useEffect(() => {
+
+    const introduction = document.querySelector('.home-introduction')
+    const observer = new IntersectionObserver(entries => {
+      entries.forEach(entry => {
+
+        if (entry.isIntersecting) {
+          menu.current.classList.remove('active')
+        } else {
+          menu.current.classList.add('active')
+        }
+      })
+    })
+
+    observer.observe(introduction)
+
+    return () => {
+      observer.unobserve(introduction)
+    }
+  }, [])
+
   return (
     <PageLayout className="home" withMenu={false}>
       <section className="home-introduction">
-        <main>
+        <div className="intro-content">
           <h1 className="color-primary">Oenopote</h1>
           <p>L'Œnophilie se rapporte à l'intérêt culturel pour la vigne et le vin en général : Dégustation du vin, Œnotourisme, Histoire de la vigne et du vin, Vin dans l'Art et la religion Gastronomie de la vigne et du vin Œnographilie Placomusophilie Buttappoenophile Étymologiquement, provient du grec oinos philos : ami du vin</p>
-          <footer>
-            <a href="#more" className="btn">Plus d'infos</a>
-            <Link href="/articles"><a className="btn">Articles</a></Link>
-          </footer>
-        </main>
+          <div>
+            <a href="#more" className="btn secondary">Plus d'infos</a>
+            <Link href="/articles"><a className="btn secondary">Articles</a></Link>
+          </div>
+        </div>
       </section>
+      <Menu ref={menu} className="home-menu"/>
       <section id="more" className="more">
         <article className="card">
           <div className="image">
@@ -21,7 +48,7 @@ export default function Home() {
           </div>
           <h2>Dégustation du vin</h2>
           <div className="card-body">
-            <p >La dégustation permet d’apprécier les qualités d’un vin et de se forger un avis. Les conditions de l'environnement de dégustation peuvent modifier la perception du vin et sont à prendre en compte. Les personnes dégustant un vin ont une perception subjective, et celle-ci peut également varier en fonction de l'objectif d'une dégustation (production du vin, vente et achat du produit, consommation hédonistique, etc).</p>
+            <p>La dégustation permet d’apprécier les qualités d’un vin et de se forger un avis. Les conditions de l'environnement de dégustation peuvent modifier la perception du vin et sont à prendre en compte. Les personnes dégustant un vin ont une perception subjective, et celle-ci peut également varier en fonction de l'objectif d'une dégustation (production du vin, vente et achat du produit, consommation hédonistique, etc).</p>
           </div>
         </article>
         <article className="card">
@@ -39,6 +66,8 @@ export default function Home() {
           <p>L'œnographilie ou œnosémiophilie désigne la collection des étiquettes de vin. Cette collection peut être purement œnophile, le classement s'effectuant alors par région, appellation et domaine, ou bien thématique, les étiquettes étant alors classées selon qu'elles sont illustrées par des animaux, des bâtiments, des œuvres d'art, des costumes traditionnels, des véhicules.</p>
         </article>
       </section>
+      <section></section>
+      <section></section>
     </PageLayout>
   )
 }

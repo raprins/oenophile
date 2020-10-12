@@ -5,7 +5,7 @@ import PageLayout from '../components/PageLayout'
 export default function contact() {
     return (
         <PageLayout>
-            <form>
+            <form className="container">
                 <header>
                     <h1>Contacter nous</h1>
                 </header>
@@ -14,7 +14,7 @@ export default function contact() {
                 <FormControl name="message" label="Message" type="textarea"/>
                 </main>
                 <footer>
-                    <button type="submit">Envoyer</button>
+                    <button type="submit" className="primary">Envoyer</button>
                 </footer>
             </form>
         </PageLayout>
